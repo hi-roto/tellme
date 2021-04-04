@@ -18,29 +18,30 @@ def callback
       #メッセージタイプがtextだったなら　
         keyword = event.message['text'].match(/.*「(.+)」.*/)
         if keyword.present?
-        seed2 = select_word
+          seed2 = select_word
+            message = [{
+              type: 'text',
+              text: "お、これこれ"
+            },{
+              type: 'text',
+              text: "#{keyword} × #{seed2}!! \n どうかいの？" 
+            }]
+        else
+          seed1 = select_word
+          seed2 = select_word
+          while seed1 == seed2
+            seed2 = select_word
+          end
+          #同じ言葉は表示させないためのコード
           message = [{
             type: 'text',
-            text: "お、これこれ"
+            text: "ほいほい"
           },{
             type: 'text',
-            text: "#{keyword} × #{seed2}!! \n どうかいの？" 
+            text: "#{seed1} × #{seed2}!! \n どねな？" 
           }]
-        else
-        seed1 = select_word
-        seed2 = select_word
-        while seed1 == seed2
-          seed2 = select_word
         end
-        #同じ言葉は表示させないためのコード
-        message = [{
-          type: 'text',
-          text: "ほいほい"
-        },{
-          type: 'text',
-          text: "#{seed1} × #{seed2}!! \n どねな？" 
-        }]
-        client.reply_message(event['replyToken'], message)
+          client.reply_message(event['replyToken'], message)
       end
     end
   end
