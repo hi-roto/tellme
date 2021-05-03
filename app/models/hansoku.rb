@@ -1,0 +1,3 @@
+class Hansoku < ApplicationRecord
+  
+end
