@@ -224,9 +224,9 @@ private
           "actions": [{
                 "type":"uri",
                 "label":"移動する",
-                "uri":"https://keisan.casio.jp/exec/system/1233283157",
+                "uri":"https://tell---me.herokuapp.com/",
                 "altUri": {
-                  "desktop":"https://keisan.casio.jp/exec/system/1233283157"
+                  "desktop":"https://tell---me.herokuapp.com/"
               }
       }]}
     }
