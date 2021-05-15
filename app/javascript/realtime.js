@@ -10,10 +10,8 @@ let timeNow = function realtime () {
   const nowHour = set2digits(nowTime.getHours());
   const nowMin = set2digits(nowTime.getMinutes());
   const nowSec = set2digits(nowTime.getSeconds());
-  const realTime = nowHour + ":" + nowMin + ":" + nowSec;
+  const realTime = "現在時刻:" + nowHour + ":" + nowMin + ":" + nowSec;
   document.getElementById("RealTimeArea1").innerHTML = realTime;
-  document.getElementById("RealTimeArea2").innerHTML = realTime;
-  document.getElementById("RealTimeArea3").innerHTML = realTime;
-};
+  };
 
 setInterval(timeNow, 1000); 
