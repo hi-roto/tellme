@@ -9,7 +9,7 @@ module TellMe
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.hosts << "96e4f5af5b9c.ngrok.io"
+    config.hosts << "ca13536a98d6.ngrok.io"
     config.hosts << "tell---me.herokuapp.com"
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
