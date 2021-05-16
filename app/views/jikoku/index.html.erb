@@ -16,7 +16,7 @@
       <p class="lead text-center">このサイトでは、防犯カメラ等の時差を確認することができます。</p>
     </div>
 
-  <div class="bg-secondary">
+  <div>
     <div class="container">
       <div class="card mb-3 text-center">
         <div class="card mb-4 shadow-sm">
@@ -26,17 +26,18 @@
           </div>
           <div class="card-body">
             <div class="container-fluid">
-              <h5><label for="InputDateTime">現在のカメラの表示時刻を選んでください</label></h5>
-              <input type="datetime-local" class="shadow-sm" id="InputDateTime" step="1">
+              <h5><label for="InputDateTime">現時表示の時刻を選択</label></h5>
+                <input type="datetime-local" class="shadow-sm" style= "width: 190px;" id="InputDateTime">
+                <input id="Inputsecond" type="number" class="shadow-sm" placeholder="秒数を入力" style= "width: 100px;" min="0" max="59"><label>秒</label>
+                <button type="button" class="btn btn-primary btn-sm" id="check-current-time">確認</button>
               <h3 id="RealTimeArea1"class="card-title"></h3>
               <h2 id="TimeDefference"></h2>
-              <h5><label for="InputDateTimePass">再生中のカメラの表示時刻を選んでください</label></h5>
-              <%# <input type="datetime-local" class="shadow-sm" id="InputDateTimePass" step="1"> %>
-              <input type="time" class="shadow-sm" id="InputDateTimePass" step="1">
-              <h4><label for="CorrectionTime">修正した時刻は</label></h4>
+              <h5><label for="InputDateTimePass">再生中の表示時刻を選択</label></h5>
+              <input type="datetime-local" class="shadow-sm" id="InputDateTimePass" style= "width: 190px;">
+              <input id="InputsecondTimePass" type="number" class="shadow-sm" placeholder="秒数を入力" style= "width: 100px;" min="0" max="59"><label>秒</label> 
+              <button type="button" class="btn btn-primary btn-sm" id="check-correction-time">確認</button>
               <h2 id ="CorrectionTime"></h2>
             </div>
-            <%# <button type="button" class="btn btn-lg btn-block btn-primary">実行</button> %>
           </div>
         </div>
       </div>
