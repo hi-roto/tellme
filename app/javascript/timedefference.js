@@ -1,10 +1,10 @@
 window.addEventListener('load', () => {
   const checkBtn = document.getElementById("check-current-time");
   const timeInput = document.getElementById("InputDateTime");
-  const timeInputSecond = document.getElementById("check-current-time");
+  const timeInputSecond = document.getElementById("InputsecondTime");
   checkBtn.addEventListener("click", () => {
     const NowTime = new Date();
-    const ChangeTime = new Date(timeInput.value + timeInputSecond.value);
+    const ChangeTime = new Date(timeInput.value + ":" + timeInputSecond.value);
     let defference;
     let TimeDefference;
     function leftFillNum(num, targetLength) {
@@ -39,9 +39,9 @@ window.addEventListener('load', () => {
     if(timeInput.value !== null){
       const checkBtnPass = document.getElementById("check-correction-time");
       const timeInputPass = document.getElementById("InputDateTimePass");
-      const timeInputSecondPass = document.getElementById("check-current-time");
+      const timeInputSecondPass = document.getElementById("InputsecondTimePass");
       checkBtnPass.addEventListener("click", () => {
-        const checkTime = new Date(timeInputPass.value + timeInputSecondPass.value).getTime();
+        const checkTime = new Date(timeInputPass.value + ":" + timeInputSecondPass.value).getTime();
         let CorrectionTime;
         if (NowTime.getTime() > ChangeTime.getTime()){
           defference = NowTime.getTime() - ChangeTime.getTime()
