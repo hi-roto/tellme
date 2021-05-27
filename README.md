@@ -1,24 +1,22 @@
-# README
+# Name(TellMe)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリケーションは、警察官向けの課題解決系アプリケーションです。
+LINEBOTを利用して交通反則金の表示や生年月日の計算、干支の計算ができ、リンク先のWEBサイトで防犯カメラの時差計算ができます。  
+ 
+# Features
+コストを欠けず、よりシンプルな操作で、現場の警察官が必要としている年齢計算であったり、時差計算であったりの一般的な課題解決ができるアプリケーションです。
+これまで、同様の機能を有するものはありましたが、有料であったり、一部機能が足りていないものばかりでしたので、それを１つのアプリケーションにまとめ、より使い勝手がいいようにしています。
+ 
+# URL
+LINEID: @801snrvc  
+URL：https://tell---me.herokuapp.com/ (LINEBotの機能を補完するWebアプリケーション)  
+※Herokuでデプロイしているため、アクセスに時間がかかる場合があります。
+  
+ # Note
+使用方法は、定まったキーワードを入力して送信することで、それがトリガーとなって色々な機能が使えるようになります。  
+[詳細はこちら](https://docs.google.com/spreadsheets/d/1pUQEVFCzoTLu2CPTY1kTbeq8FTWFW_M_nT4yU1ff66w/edit?usp=sharing)
+ 
+ 
+ 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+　
