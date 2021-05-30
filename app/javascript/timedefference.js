@@ -13,10 +13,8 @@ window.addEventListener('load', () => {
       const inputSecond = getInputSecond(timeInputSecond);
       const InputDate = new Date(timeInput.value + ":" + inputSecond);
       const sign = nowDate > InputDate ? 1 : 0;
-      debugger;
       const diff = Math.abs(nowDate - InputDate);
       const times = new Date(diff).toUTCString().match(/(\d+):(\d+):(\d+)/);
-      debugger;
       const days = Math.floor(diff / 86400000);
       return {
         timeDeference: `${String(days).padStart(2, '0')}日${times[1]}時間${times[2]}分${times[3]}秒${['早い', '遅れ'][sign]}`,
@@ -72,7 +70,6 @@ window.addEventListener('load', () => {
     document.addEventListener('click', event =>{
       if (event.target.closest('.btn-correction-time')){
         if (setTime.timeDeference !== null){
-          debugger;
           document.getElementById("CorrectionTime").innerHTML = correctionTime(setTime);
       }}
     });
