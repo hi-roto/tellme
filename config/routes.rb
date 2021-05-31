@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post '/callback', to: 'linebot#callback'
-  get "jikoku", to: 'jikoku#index'
-  root to: 'jikoku#index'
+  post '/callback', to: 'linebots#callback'
+  get "jikoku", to: 'jikokus#index'
+  root to: 'jikokus#index'
 end
