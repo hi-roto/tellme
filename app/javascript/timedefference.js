@@ -1,6 +1,14 @@
 window.addEventListener('load', () => {
-  const timeInput = document.getElementById("InputDateTime");
-  const timeInputSecond = document.getElementById("InputSecondTime");  
+  function timeInputElement(){
+    const timeAreaCount = document.querySelectorAll(".container").length;
+    const timeInput = document.getElementById(`InputDateTime-${timeAreaCount}`);
+    const timeInputSecond = document.getElementById(`InputSecondTime-${timeAreaCount}`);
+    return{
+      timeAreaCount: timeAreaCount,
+      timeInput: timeInput,
+      timeInputSecond: timeInputSecond
+    };
+  };
 
   function getInputSecond (secondElement) {if (Number(secondElement.value) < 10){
     return secondElement.value.padStart(2, 0);
@@ -8,10 +16,10 @@ window.addEventListener('load', () => {
     return secondElement.value
   }};
 
-  function timeDeference(){
+  function timeDeference(timeDeferenceElement){
       const nowDate = new Date();
-      const inputSecond = getInputSecond(timeInputSecond);
-      const InputDate = new Date(timeInput.value + ":" + inputSecond);
+      const inputSecond = getInputSecond(timeDeferenceElement.timeInputSecond);
+      const InputDate = new Date(timeDeferenceElement.timeInput.value + ":" + inputSecond);
       const sign = nowDate > InputDate ? 1 : 0;
       const diff = Math.abs(nowDate - InputDate);
       const times = new Date(diff).toUTCString().match(/(\d+):(\d+):(\d+)/);
@@ -24,20 +32,30 @@ window.addEventListener('load', () => {
   
     let setTime;
     document.addEventListener('click', event =>{
-      if (event.target.closest('.btn-time-deference')){
-        let innerTime = timeDeference()
-        document.getElementById("TimeDeference").innerHTML = innerTime.timeDeference;
+      let setCount = document.querySelectorAll(".container").length
+      if (event.target.closest(`#check-current-time-${setCount}`)){
+        let timeDeferenceElement = timeInputElement();
+        let innerTime = timeDeference(timeDeferenceElement)
         setTime = innerTime;
+        document.getElementById(`TimeDeference-${timeDeferenceElement.timeAreaCount}`).innerHTML = innerTime.timeDeference;
       }
     });
   
-  const correctionTimeInput = document.getElementById("InputDateTimePass");
-  const correctionTimeInputSecond = document.getElementById("InputSecondTimePass");
-    
-  function correctionTime(setTime){
+  function timeInputPassElement(){
+    const timeAreaCount = document.querySelectorAll(".container").length;
+    const correctionTimeInput = document.getElementById(`InputDateTimePass-${timeAreaCount}`);
+    const correctionTimeInputSecond = document.getElementById(`InputSecondTimePass-${timeAreaCount}`);
+    return{
+      timeAreaCount: timeAreaCount,
+      correctionTimeInput: correctionTimeInput,
+      correctionTimeInputSecond: correctionTimeInputSecond
+    };
+  };
+
+  function correctionTime(setTime, correctionTimeElement){
       const setDate = setTime.setTime
-      const inputSecondCorrection = getInputSecond(correctionTimeInputSecond);
-      const InputCorrectionDate = new Date(correctionTimeInput.value + ":" + inputSecondCorrection).getTime();
+      const inputSecondCorrection = getInputSecond(correctionTimeElement.correctionTimeInputSecond);
+      const InputCorrectionDate = new Date(correctionTimeElement.correctionTimeInput.value + ":" + inputSecondCorrection).getTime();
       const checkStr = setTime.timeDeference
       
       function parseTime(resultTime){
@@ -55,7 +73,6 @@ window.addEventListener('load', () => {
         const correctionSec = set2digits(resultTime.getSeconds());
         return "修正:" + correctionYear + "年" + correctionMonth + "月" + correctionDay + "日"
                 + correctionHour + ":" + correctionMin + ":" + correctionSec;
-  
       };
       
       if (checkStr.indexOf("早い") !== -1){
@@ -68,9 +85,11 @@ window.addEventListener('load', () => {
     };
     
     document.addEventListener('click', event =>{
-      if (event.target.closest('.btn-correction-time')){
+      let setCount = document.querySelectorAll(".container").length
+      if (event.target.closest(`#check-correction-time-${setCount}`)){
         if (setTime.timeDeference !== null){
-          document.getElementById("CorrectionTime").innerHTML = correctionTime(setTime);
+          let correctionTimeElement = timeInputPassElement();
+          document.getElementById(`CorrectionTime-${setCount}`).innerHTML = correctionTime(setTime, correctionTimeElement);
       }}
     });
 });

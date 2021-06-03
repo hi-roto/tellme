@@ -21,19 +21,22 @@
       <div class="card mb-3  shadow-sm text-center">
           <div class="card-body">
             <div class="container-fluid">
+              <div class="container-count text-right">
+                <h4 id = "innerCount-1" ></h4>
+              </div>
               <h5><label for="InputDateTime">現時表示の時刻を選択</label></h5>
-                <input type="datetime-local" id="InputDateTime" class="shadow-sm" style= "width: 200px;">
-                <input type="number" id="InputSecondTime" class="shadow-sm" placeholder="秒数を入力" style= "width: 120px;" min="0" max="59"><label>秒</label>
-                <button type="button" class="btn-time-deference btn-primary btn-sm" id="check-current-time">確認</button>
+                <input type="datetime-local" id="InputDateTime-1" class="shadow-sm" style= "width: 200px;">
+                <input type="number" id="InputSecondTime-1" class="shadow-sm" placeholder="秒数を入力" style= "width: 120px;" min="0" max="59"><label>秒</label>
+                <button type="button" class="btn-time-deference btn-primary btn-sm" id="check-current-time-1">確認</button>
               <h3 id="RealTimeArea1"class="card-title"></h3>
-              <h2 id="TimeDeference"></h2>
-              <h5><label for="InputDateTimePass">再生中の表示時刻を選択</label></h5>
-                <input type="datetime-local" class="shadow-sm" id="InputDateTimePass" style= "width: 200px;">
-                <input id="InputSecondTimePass" type="number" class="shadow-sm" placeholder="秒数を入力" style= "width: 120px;" min="0" max="59"><label>秒</label> 
-              <button type="button" class="btn-correction-time btn-primary btn-sm" id="check-correction-time">確認</button>
-              <h2 id ="CorrectionTime"></h2>
+              <h2 id="TimeDeference-1"></h2>
+              <h5><label for="InputDateTimePass-1">再生中の表示時刻を選択</label></h5>
+                <input  id="InputDateTimePass-1" type="datetime-local" class="shadow-sm" style= "width: 200px;">
+                <input id="InputSecondTimePass-1" type="number" class="shadow-sm" placeholder="秒数を入力" style= "width: 120px;" min="0" max="59"><label>秒</label> 
+              <button type="button" class="btn-correction-time btn-primary btn-sm" id="check-correction-time-1">確認</button>
+              <h2 id ="CorrectionTime-1"></h2>
               <div class="text-center">
-                  <button class="m-2 btn btn-outline-success add-button" style="width: 200px; display: none;" id="add-btn-1">追加</button>
+                  <button class="m-2 btn btn-outline-success add-button" style="width: 200px;" id="add-btn-1">追加</button>
               </div>
             </div>
           </div>
