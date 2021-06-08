@@ -32,7 +32,8 @@ window.addEventListener('load', function (){
   let btnAreaCount = document.querySelectorAll(".add-button").length;  
 
   document.addEventListener('click', event => {
-      if (event.target.closest('.add-button'))
+    let containerCount = document.querySelectorAll(".container").length;
+    if (event.target.closest('.add-button') && containerCount < 10)
         createTimeZone(btnAreaCount++);
     });
 });
