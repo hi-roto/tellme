@@ -35,10 +35,13 @@ window.addEventListener('load', () => {
       let setCount = document.querySelectorAll(".container").length
       if (event.target.closest(`#check-current-time-${setCount}`)){
         let timeDeferenceElement = timeInputElement();
-        let innerTime = timeDeference(timeDeferenceElement)
-        setTime = innerTime;
-        document.getElementById(`TimeDeference-${timeDeferenceElement.timeAreaCount}`).innerHTML = innerTime.timeDeference;
-      }
+        if (timeDeferenceElement.timeInput.value !== "" && timeDeferenceElement.timeInputSecond.value !== ""){
+          let innerTime = timeDeference(timeDeferenceElement)
+          setTime = innerTime;
+          document.getElementById(`TimeDeference-${timeDeferenceElement.timeAreaCount}`).innerHTML = innerTime.timeDeference;
+      }else{
+        alert("入力エラー")
+      }}
     });
   
   function timeInputPassElement(){
@@ -87,9 +90,12 @@ window.addEventListener('load', () => {
     document.addEventListener('click', event =>{
       let setCount = document.querySelectorAll(".container").length
       if (event.target.closest(`#check-correction-time-${setCount}`)){
-        if (setTime.timeDeference !== null){
+        if (typeof setTime !== "undefined"){
           let correctionTimeElement = timeInputPassElement();
-          document.getElementById(`CorrectionTime-${setCount}`).innerHTML = correctionTime(setTime, correctionTimeElement);
+          if (correctionTimeElement.correctionTimeInput.value !== "" && correctionTimeElement.correctionTimeInputSecond.value !== ""){
+            document.getElementById(`CorrectionTime-${setCount}`).innerHTML = correctionTime(setTime, correctionTimeElement);
+      }}else{
+        alert("入力エラー")
       }}
     });
 });
